@@ -1,0 +1,34 @@
+export default {
+    "flights": [
+    {
+        "Origin":"KSFO",
+        "Destination":"KLAX",
+        "International":false,
+        "Cargo":false
+    },
+    {
+        "Origin":"KSFO",
+        "Destination":"DFW",
+        "International":false,
+        "Cargo":true
+    },
+    {
+        "Origin":"EGKK",
+        "Destination":"KLAX",
+        "International":true,
+        "Cargo":false
+    },
+    {
+        "Origin":"KMEM",
+        "Destination":"WSSS",
+        "International":true,
+        "Cargo":true
+    },
+    {
+        "Origin":"VAAH",
+        "Destination":"OMDB",
+        "International":true,
+        "Cargo":false
+    }
+]
+}

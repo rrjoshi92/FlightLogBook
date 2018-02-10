@@ -1,3 +1,4 @@
+import './assets/styles/app.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -5,21 +6,23 @@ import {
     Route,
     Link
   } from 'react-router-dom';
-import './index.css';
-import App from './App';
+import Header from './Components/header'  
 import FlightDetail from './Components/flight-detail'
 import FlightList from './Components/flight-list'
 import registerServiceWorker from './registerServiceWorker';
+  
+
+//import App from './App';
 
 ReactDOM.render(
-    <App/>, 
+    <Header/>, 
     document.getElementById('header'));
 ReactDOM.render(
     <Router>
-        <div>
+        <div className="container">
         <Route exact path="/" component={FlightList}/>            
         <Route path="/flight" component={FlightDetail}/>            
         </div>
     </Router>, 
-    document.getElementById('root'));
-registerServiceWorker();
+    document.getElementById('container'));
+//registerServiceWorker();
