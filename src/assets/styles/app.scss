@@ -18,8 +18,27 @@
     padding: 0 32px 0 40px;
 }
 
+.sidebar {
+    width: 180px;
+    top: 66px;
+    left: 0;
+    z-index: 904;
+    display: block;
+    min-height: 100%;
+    background: rgba(0,0,0,.5);
+    height: 100%;
+    position: fixed;
+
+    a {
+       svg{
+           margin-right: 20px;
+       } 
+    }
+}
+
 .container{
     margin-left: 180px;
     padding: 66px 0 34px;
     min-height: 500px;
+    width: auto;
 }

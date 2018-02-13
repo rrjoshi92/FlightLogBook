@@ -5,17 +5,24 @@ import TableBody from './table-body';
 import TableHead from './table-head'
 import TableRow from './table-row'
 import Panel from './panel'
+import { Route, Redirect } from 'react-router'
 
 class FlightList extends Component {
     constructor(props){
         super(props);        
-        this.state = FlightListData; 
+        this.state = FlightListData;   
+        
+        this.onRowClicked = this.onRowClicked.bind(this);
+    }
+
+    onRowClicked(id){           
+      this.props.history.push('/flight/'+id,this.state);
     }
 
     renderFlight() {
-        return this.state.flights.map((flight,i)=>{            
-            return (
-                <TableRow  key={i}>
+        return this.state.flights.map((flight,i)=>{                       
+            return (               
+                <TableRow  key={i} id={flight.id} onClick={this.onRowClicked}>                    
                     <td>{flight.Origin}</td>
                     <td>{flight.Destination}</td>
                     <td>{(flight.International)?'Yes':'No'}</td>
