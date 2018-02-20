@@ -98,6 +98,7 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.7",
     "node-sass": "^4.7.2",
+    "react-flex-proto": "^1.0.0",
     "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.6"
   }

@@ -1,18 +1,19 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class Button extends React.Component {
 
   static propTypes = {
-    type: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    title: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['xs', 'sm', 'mm', 'md', 'xm', 'lg']),
-    disabled: React.PropTypes.bool,
-    isIconHidden: React.PropTypes.bool,
-    icon: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element,
+    type: PropTypes.string,
+    onClick: PropTypes.func,
+    title: PropTypes.string,
+    size: PropTypes.oneOf(['xs', 'sm', 'mm', 'md', 'xm', 'lg']),
+    disabled: PropTypes.bool,
+    isIconHidden: PropTypes.bool,
+    icon: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element,
     ]),
   }
 

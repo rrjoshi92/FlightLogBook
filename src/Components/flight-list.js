@@ -1,5 +1,4 @@
 import React ,{Component} from 'react'
-import FlightListData from './../Data/flight-list'
 import Table from './table';
 import TableBody from './table-body';
 import TableHead from './table-head'
@@ -10,13 +9,14 @@ import { Route, Redirect } from 'react-router'
 class FlightList extends Component {
     constructor(props){
         super(props);        
-        this.state = FlightListData;   
         
+        //this.state = this.props.flights;  
+       this.state = {flights: this.props.flights};
         this.onRowClicked = this.onRowClicked.bind(this);
     }
 
-    onRowClicked(id){           
-      this.props.history.push('/flight/'+id,this.state);
+    onRowClicked(id){                   
+      this.props.history.push('/flight/'+id);
     }
 
     renderFlight() {
