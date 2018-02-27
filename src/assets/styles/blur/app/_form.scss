@@ -204,6 +204,7 @@ label.custom-checkbox {
         &:before {
           content: "\f00c";
           font-weight: $font-light;
+          color: white;
         }
       }
     }
@@ -229,7 +230,8 @@ label.custom-checkbox {
     width: 100%;
     &:before {
       cursor: pointer;
-      font-family: fontAwesome;
+      //font-family: fontAwesome;
+      font-family:"Font Awesome 5 Free";
       font-weight: $font-light;
       font-size: 12px;
       color: $default-text;

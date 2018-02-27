@@ -8,12 +8,19 @@
 @import "theme/_socicon";
 @import "theme/_layout";
 @import 'theme/buttons';
+
+@import "theme/fontawesome/fa-solid";
+
 @import 'app/buttonsPage';
 @import 'app/tabsPage';
 @import 'app/form';
 @import 'app/table';
 @import 'app/modals';
 @import 'app/notifications';
+
+// @import "theme/fontawesome/fontawesome";
+
+
 
 @import 'app/typography';
 @import 'theme/bootstrap-overrides/panel';
@@ -24,6 +31,8 @@
 @import "theme/components/sidebar";
 @import "theme/components/msgCenter";
 @import 'theme/table';
+
+
 
 html, body {
   height: 100%;
