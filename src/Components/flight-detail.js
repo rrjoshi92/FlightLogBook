@@ -5,7 +5,7 @@ class FlightDetail extends Component {
     constructor(props){       
         super(props);                      
         this.state = {            
-            flight: this.props.flights.filter((item)=>{return item.id == this.props.match.params.id})[0]            
+            flight: this.props.flights.filter((item)=>{return item.id === this.props.match.params.id})[0]            
         }
     }
 

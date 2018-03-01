@@ -3,7 +3,6 @@ import Panel from './panel'
 import {Input} from './input'
 import {Button} from './button'
 import {Notifications} from './notifications'
-import {Notification} from './notification'
 import {eventBus} from './../lib/event-bus';
 
 class AddFlightForm extends Component{

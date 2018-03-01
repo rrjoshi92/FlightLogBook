@@ -1,11 +1,8 @@
 import './assets/styles/app.scss';
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {
     BrowserRouter as Router,
-    Route,
-    Switch,
-    Link
+    Route    
   } from 'react-router-dom';
 import Header from './Components/header'  
 import SideBar from './Components/side-bar'
@@ -18,7 +15,6 @@ import FlightlistService from './Services/FlightListServices'
 class App extends Component {       
     constructor(props){
         super(props);
-        this.database = {};
 
         this.state = {
             loading:true            

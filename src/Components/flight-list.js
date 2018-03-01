@@ -5,7 +5,6 @@ import TableHead from './table-head'
 import TableRow from './table-row'
 import Panel from './panel'
 import {Button} from './button'
-import { Route, Redirect } from 'react-router'
 
 class FlightList extends Component {
     constructor(props){

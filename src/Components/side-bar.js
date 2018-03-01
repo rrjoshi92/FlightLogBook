@@ -1,13 +1,10 @@
 
 import React ,{Component} from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faHome, faGlobe, faPlusCircle } from '@fortawesome/fontawesome-free-solid'
 
-class SideBar extends Component {
-    constructor(props){
-        super(props);        
-    }
+class SideBar extends Component {    
 
     render() {
         return (
