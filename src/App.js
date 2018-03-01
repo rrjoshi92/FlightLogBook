@@ -12,37 +12,61 @@ import SideBar from './Components/side-bar'
 import FlightDetail from './Components/flight-detail'
 import FlightList from './Components/flight-list'
 import AddFlightForm from './Components/add-flight-form'
+import {Preloader} from './Components/preloader'
 import FlightlistService from './Services/FlightListServices'
 
-
-
-class App extends Component {
+class App extends Component {       
     constructor(props){
-        super(props);                
-    }    
+        super(props);
+        this.database = {};
 
-    static defaultProps = {
-        flights: FlightlistService.getFlightList().flights
-    }   
+        this.state = {
+            loading:true            
+        }
+        this.addFlight = this.addFlight.bind(this);                
 
-    render() {
+    }           
+
+    addFlight(flight){               
+        this.setState({
+            flights:[
+                ...this.state.flights,
+                flight
+            ]
+        },FlightlistService.addFlight(flight));        
+    }
+
+    componentWillMount = () => {            
+        FlightlistService.getFlightList().then((flights)=>{                   
+        this.setState({
+            loading:false,
+            flights:flights
+        });   
+      })          
+    }
+
+    render() {        
         return (
             <Router>
                 {true ?
                 <div>
-                    <Header/>
-                    <SideBar/>
-                    <div className="container">                        
-                        <Route exact path="/" render={({history})=>(                            
-                            <FlightList history={history} flights={this.props.flights}/>
-                        )} />                        
-                        <Route exact path="/addflight" render={(history)=>(
-                            <AddFlightForm/>
-                        )}/>            
-                        <Route path="/flight/:id"  render={({history,match})=>(
-                            <FlightDetail history={history} match={match} flights={this.props.flights}/>
-                        )}/>                                    
+                { this.state.loading ? <Preloader/> :
+                    <div>
+                        <Header/>
+                        <SideBar/>                    
+                        <div className="container">                        
+                            <Route exact path="/" render={({history})=>(                            
+                                <FlightList history={history} flights={this.state.flights}/>
+                            )} />                        
+                            <Route exact path="/addflight" render={(history)=>(
+                                <AddFlightForm  history={history} addFlight = {this.addFlight} />
+                            )}/>            
+                            <Route path="/flight/:id"  render={({history,match})=>(
+                                <FlightDetail history={history} match={match} flights={this.state.flights}/>
+                            )}/>                                    
+                        </div>
                     </div>
+                }
                 </div>
                 : <div>Please login!!</div>}    
             </Router>

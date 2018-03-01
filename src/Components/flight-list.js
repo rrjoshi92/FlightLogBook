@@ -4,6 +4,7 @@ import TableBody from './table-body';
 import TableHead from './table-head'
 import TableRow from './table-row'
 import Panel from './panel'
+import {Button} from './button'
 import { Route, Redirect } from 'react-router'
 
 class FlightList extends Component {
@@ -11,22 +12,28 @@ class FlightList extends Component {
         super(props);        
         
         //this.state = this.props.flights;  
-       this.state = {flights: this.props.flights};
+        this.state = {flights: this.props.flights};
         this.onRowClicked = this.onRowClicked.bind(this);
+        this.onEdit = this.onEdit.bind(this);
     }
 
-    onRowClicked(id){                   
-      this.props.history.push('/flight/'+id);
+    onRowClicked(id){            
+      
+    }
+
+    onEdit(e){
+        this.props.history.push('/flight/'+e.target.id);      
     }
 
     renderFlight() {
         return this.state.flights.map((flight,i)=>{                       
             return (               
-                <TableRow  key={i} id={flight.id} onClick={this.onRowClicked}>                    
+                <TableRow  key={i} id={flight.id} onClick={()=>{}}>      
                     <td>{flight.Origin}</td>
                     <td>{flight.Destination}</td>
                     <td>{(flight.International)?'Yes':'No'}</td>
                     <td>{flight.Cargo ? 'Yes' : 'No'}</td>
+                    <td><Button id={flight.id} type="info" size="mm" title="Details" onClick={this.onEdit}/></td>
                 </TableRow>
             )
         })
@@ -41,6 +48,7 @@ class FlightList extends Component {
                 <td>Destination</td>
                 <td>International</td>
                 <td>Cargo</td>
+                <td>View</td>
                 </TableHead>              
                 <TableBody>                               
                     {this.renderFlight()}
@@ -53,3 +61,4 @@ class FlightList extends Component {
 
 export default FlightList;
 
+//  this.onRowClicked            

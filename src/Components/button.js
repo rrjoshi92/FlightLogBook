@@ -82,7 +82,7 @@ export class Button extends React.Component {
     }
 
     return (
-      <button className={`btn ${classes}`} disabled={this.props.disabled} onClick={this.props.onClick}>
+      <button id={this.props.id} className={`btn ${classes}`} disabled={this.props.disabled} onClick={this.props.onClick}>
         {this.renderIcon(icon)} {this.props.hasOwnProperty('title') ? this.props.title : title}
       </button>
     );

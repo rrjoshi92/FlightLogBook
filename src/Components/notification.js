@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class Notification extends React.Component {
 
   static propTypes = {
-    title: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['success', 'warning', 'error', 'info']),
-    timeout: React.PropTypes.number,
-    extendedTimeout: React.PropTypes.number,
-    closeButton: React.PropTypes.bool,
-    tapToDismiss: React.PropTypes.bool,
-    onClose: React.PropTypes.func.isRequired,
+    title: PropTypes.string,
+    type: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
+    timeout: PropTypes.number,
+    extendedTimeout: PropTypes.number,
+    closeButton: PropTypes.bool,
+    tapToDismiss: PropTypes.bool,
+    onClose: PropTypes.func.isRequired,
   }
 
   static defaultProps = {

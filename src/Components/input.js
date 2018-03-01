@@ -107,7 +107,7 @@ export class Input extends React.Component {
             <input
               type="checkbox"
               disabled={this.props.disabled}
-              //checked={this.props.value}
+              defaultChecked={this.props.value}
               onClick={e => this.props.onChange(! this.props.value)}
               ref='input'
              />
@@ -150,7 +150,7 @@ export class Input extends React.Component {
         key={this.props.id}
         onChange={this.props.onChange}
         onKeyDown={this.props.onKeyDown}
-        value={this.props.value}
+        defaultValue={this.props.value}
         ref='input'
       />
     );

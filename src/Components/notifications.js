@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {Notification} from './notification';
 
@@ -8,16 +9,16 @@ import {eventBus} from './../lib/event-bus';
 export class Notifications extends React.Component {
 
   static propTypes = {
-    position: React.PropTypes.string,
-    newestOnTop: React.PropTypes.bool,
-    maxOpened: React.PropTypes.number,
-    preventDuplicates: React.PropTypes.bool,
+    position: PropTypes.string,
+    newestOnTop: PropTypes.bool,
+    maxOpened: PropTypes.number,
+    preventDuplicates: PropTypes.bool,
   }
 
   static defaultProps = {
     position: 'top-right',
     newestOnTop: true,
-    maxOpened: 10,
+    maxOpened: 5,
     preventDuplicates: true,
   }
 

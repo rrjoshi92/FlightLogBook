@@ -37,5 +37,20 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBXXeDYrNZ8JM1XKSEBUn0fDgOITZbtUcU",
+        authDomain: "flightlog2018.firebaseapp.com",
+        databaseURL: "https://flightlog2018.firebaseio.com",
+        projectId: "flightlog2018",
+        storageBucket: "",
+        messagingSenderId: "794353404477"
+      };
+      firebase.initializeApp(config);
+    </script>
   </body>
 </html>
