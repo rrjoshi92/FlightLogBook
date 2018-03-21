@@ -5,21 +5,29 @@ import {Button} from './button'
 import {Notifications} from './notifications'
 import {eventBus} from './../lib/event-bus';
 
+
 class AddFlightForm extends Component{
     
-    constructor(props){
+    constructor(props){        
         super(props);
+        let flight;
+        if(this.props.flights){
+            flight = this.props.flights.filter((item)=>{return item.id === this.props.match.params.id})[0];              
+        }
+        
         this.state = {
-            origin: '',
-            destination: '',
-            cargo: false,
-            international: false     
+            origin: flight ? flight.Origin : '' ,
+            destination: flight ? flight.Destination : '',
+            cargo: flight ? flight.Cargo : false,
+            international: flight ? flight.International : false,    
+            editing:  flight ? true : false
         }
         this.onOriginChange = this.onOriginChange.bind(this);
         this.onDestinationChange = this.onDestinationChange.bind(this);
         this.onCargoChange = this.onCargoChange.bind(this);
         this.onInternationalChange = this.onInternationalChange.bind(this);
-        this.newFlight = this.newFlight.bind(this);        
+        this.newFlight = this.newFlight.bind(this);    
+        this.updateFlight = this.updateFlight.bind(this);    
     }
     
 
@@ -56,7 +64,7 @@ class AddFlightForm extends Component{
             Cargo:this.state.cargo
         };
         this.props.addFlight(newFlight);
-        eventBus.addNotification("success","added")
+        eventBus.addNotification("success","added")        
 
         this.setState({
             origin: '',
@@ -67,6 +75,10 @@ class AddFlightForm extends Component{
             this.refs.addFlightForm.reset();
         });                   
     }    
+
+    updateFlight(e){
+
+    }
 
     render(){
         return(
@@ -81,7 +93,9 @@ class AddFlightForm extends Component{
                             <Input type="checkbox" label="Cargo" value={this.state.cargo} onChange={this.onCargoChange}/>                                                
                             <Input type="checkbox" label="International" value={this.state.international} onChange={this.onInternationalChange}/>      
                             <hr/>
-                            <Button type="add" size="md" title="Add Flight" onChange={()=>{}} onClick={this.newFlight}/>                          
+                            {this.state.editing ? <Button type="add" size="md" title="Update Flight" onChange={()=>{}} onClick={this.updateFlight}/>
+                                 : <Button type="add" size="md" title="Add Flight" onChange={()=>{}} onClick={this.newFlight}/>}
+                            
                         </form>    
                     </div>    
                 </Panel>                

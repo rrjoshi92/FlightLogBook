@@ -56,10 +56,13 @@ class App extends Component {
                             )} />                        
                             <Route exact path="/addflight" render={(history)=>(
                                 <AddFlightForm  history={history} addFlight = {this.addFlight} />
+                            )}/>
+                            <Route exact path="/flight/edit/:id"  render={({history,match})=>(
+                                <AddFlightForm  history={history} match={match} flights={this.state.flights} />
                             )}/>            
-                            <Route path="/flight/:id"  render={({history,match})=>(
+                            <Route exact path="/flight/:id"  render={({history,match})=>(
                                 <FlightDetail history={history} match={match} flights={this.state.flights}/>
-                            )}/>                                    
+                            )}/>                                
                         </div>
                     </div>
                 }
