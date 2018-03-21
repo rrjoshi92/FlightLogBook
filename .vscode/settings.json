@@ -1,0 +1,23 @@
+// Place your settings in this file to overwrite the default settings
+{     
+    "window.zoomLevel": 0,
+    "extensions.ignoreRecommendations": false,
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
+    "workbench.iconTheme": "vscode-icons",
+    "git.confirmSync": false,
+    "workbench.colorTheme": "One Dark Rain Coat Bright",    
+    "workbench.colorCustomizations": {
+        "peekView.border": "#E50A69AB",
+        "peekViewTitle.background": "#101119",
+        "peekViewResult.background": "#101119",
+        "peekViewEditor.background": "#202232",
+        "peekViewEditor.matchHighlightBackground": "#314365",        
+        "editorCursor.foreground":"#FF30E6",
+        "selection.background":"#FF30E6",
+        "scrollbarSlider.background":"#AB309C",
+        "editor.selectionHighlightBackground":"#AB309C",
+        "sideBar.background":"#101119",
+        "activityBar.background":"#000000"        
+    }           
+}
