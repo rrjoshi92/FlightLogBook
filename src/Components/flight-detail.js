@@ -13,10 +13,10 @@ class FlightDetail extends Component {
         if(this.state.flight){
             return (          
             <Panel title="Flight Details">              
-                <div className="panel-body"><lebel>Origin:</lebel>{this.state.flight.Origin}</div>
-                <div className="panel-body">Destination:{this.state.flight.Destination}</div>
-                <div className="panel-body">International:{(this.state.flight.International)? "Yes" : "No"}</div>
-                <div className="panel-body">International:{(this.state.flight.Cargo)? "Yes" : "No"}</div>              
+                <div className="panel-body">Origin: {this.state.flight.Origin}</div>
+                <div className="panel-body">Destination:    {this.state.flight.Destination}</div>
+                <div className="panel-body">International:  {(this.state.flight.International)? "Yes" : "No"}</div>
+                <div className="panel-body">International:  {(this.state.flight.Cargo)? "Yes" : "No"}</div>              
             </Panel>
             );
         }else{

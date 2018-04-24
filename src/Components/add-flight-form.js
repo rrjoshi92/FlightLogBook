@@ -19,7 +19,8 @@ class AddFlightForm extends Component{
             origin: flight ? flight.Origin : '' ,
             destination: flight ? flight.Destination : '',
             cargo: flight ? flight.Cargo : false,
-            international: flight ? flight.International : false,    
+            international: flight ? flight.International : false, 
+            id:   flight ? flight.id:'',
             editing:  flight ? true : false
         }
         this.onOriginChange = this.onOriginChange.bind(this);
@@ -57,7 +58,7 @@ class AddFlightForm extends Component{
     
     newFlight(e){    
         e.preventDefault();          
-        var newFlight = {            
+        const newFlight = {            
             Origin:this.state.origin,
             Destination:this.state.destination,
             International:this.state.international,
@@ -70,14 +71,24 @@ class AddFlightForm extends Component{
             origin: '',
             destination: '',
             cargo: false,
-            international: false     
+            international: false,
+            id:''     
         },()=>{
             this.refs.addFlightForm.reset();
         });                   
     }    
 
     updateFlight(e){
-
+        e.preventDefault();
+        const updatedFlight = {
+            Origin:this.state.origin,
+            Destination:this.state.destination,
+            International:this.state.international,
+            Cargo:this.state.cargo,
+            id:this.state.id
+        };
+        this.props.updateFlight(updatedFlight);
+        eventBus.addNotification("success","Updated");
     }
 
     render(){
@@ -94,8 +105,7 @@ class AddFlightForm extends Component{
                             <Input type="checkbox" label="International" value={this.state.international} onChange={this.onInternationalChange}/>      
                             <hr/>
                             {this.state.editing ? <Button type="add" size="md" title="Update Flight" onChange={()=>{}} onClick={this.updateFlight}/>
-                                 : <Button type="add" size="md" title="Add Flight" onChange={()=>{}} onClick={this.newFlight}/>}
-                            
+                                 : <Button type="add" size="md" title="Add Flight" onChange={()=>{}} onClick={this.newFlight}/>}                            
                         </form>    
                     </div>    
                 </Panel>                
