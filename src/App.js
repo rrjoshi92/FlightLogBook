@@ -12,6 +12,7 @@ import FlightList from './Components/flight-list'
 import AddFlightForm from './Components/add-flight-form'
 import { Preloader } from './Components/preloader'
 import FlightlistService from './Services/FlightListServices'
+import About from './Components/flight-about'
 
 class App extends Component {
     constructor(props) {
@@ -93,7 +94,7 @@ class App extends Component {
                                             <FlightDetail history={history} match={match} flights={this.state.flights} />
                                         )} />
                                         <Route exact path="/about" render={({ history, match }) => (
-                                            <div><h1>About page</h1></div>
+                                            <About/>
                                         )} />
                                         <Route render={({ history, match }) => (
                                             <div><h1>404</h1></div>

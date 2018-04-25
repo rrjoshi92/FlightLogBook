@@ -42,3 +42,23 @@
     min-height: 500px;
     width: auto;    
 }
+
+#about {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 40px 70px;
+    .self-image-container {
+        margin: 1% auto;
+        width: 15%;
+        .self-image {
+            height: 160px;
+            border-radius: 50%;
+        }
+    }
+    .info {        
+        padding: 20px;
+        text-align: justify;
+        width: 95%;
+        margin: auto;
+    }
+}
