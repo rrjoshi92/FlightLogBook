@@ -23,7 +23,7 @@ class SideBar extends Component {
                         </Link>
                     </li>                    
                     <li className="al-sidebar-list-item">
-                        <Link to="about" className="al-sidebar-list-link">
+                        <Link to="/about" className="al-sidebar-list-link">
                             <FontAwesomeIcon icon={faGlobe} />   
                             About
                         </Link>
