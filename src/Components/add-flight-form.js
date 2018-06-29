@@ -23,6 +23,9 @@ class AddFlightForm extends Component{
             id:   flight ? flight.id:'',
             editing:  flight ? true : false
         }
+
+
+
         this.onOriginChange = this.onOriginChange.bind(this);
         this.onDestinationChange = this.onDestinationChange.bind(this);
         this.onCargoChange = this.onCargoChange.bind(this);
@@ -35,7 +38,8 @@ class AddFlightForm extends Component{
     onOriginChange(e){
         this.setState({
             origin: e.target.value
-        });              
+        }); 
+         
     }
 
     onDestinationChange(e){
@@ -55,9 +59,15 @@ class AddFlightForm extends Component{
             international: isInternational
         }); 
     }
+
     
     newFlight(e){    
-        e.preventDefault();          
+        e.preventDefault();                     
+       if(!this.state.origin.match(/^[a-z0-9]+$/i)){
+            alert("check origin airport")
+        }else if(!this.state.destination.match(/^[a-z0-9]+$/i)){
+            alert("check destiantion airport")
+        }else{
         const newFlight = {            
             Origin:this.state.origin,
             Destination:this.state.destination,
@@ -65,7 +75,7 @@ class AddFlightForm extends Component{
             Cargo:this.state.cargo
         };
         this.props.addFlight(newFlight);
-        eventBus.addNotification("success","added")        
+        eventBus.addNotification("success","added")   }    
 
         this.setState({
             origin: '',
@@ -75,7 +85,8 @@ class AddFlightForm extends Component{
             id:''     
         },()=>{
             this.refs.addFlightForm.reset();
-        });                   
+        }); 
+           
     }    
 
     updateFlight(e){
@@ -92,6 +103,10 @@ class AddFlightForm extends Component{
     }
 
     render(){
+        const isEnabled =
+        this.state.origin.length > 0 &&
+        this.state.destination.length > 0;
+
         return(
             <div className="form-center">                
                 <Panel title="Add new Flight Log">
@@ -100,12 +115,12 @@ class AddFlightForm extends Component{
                             <label>Origin Airport:</label>               
                             <Input value={this.state.origin} onChange={this.onOriginChange}/> 
                             <label>Destination Airport:</label>               
-                            <Input value={this.state.destination} onChange={this.onDestinationChange}/>                    
+                            <Input value={this.state.destination} onChange={this.onDestinationChange} />                    
                             <Input type="checkbox" label="Cargo" value={this.state.cargo} onChange={this.onCargoChange}/>                                                
                             <Input type="checkbox" label="International" value={this.state.international} onChange={this.onInternationalChange}/>      
                             <hr/>
                             {this.state.editing ? <Button type="add" size="md" title="Update Flight" onChange={()=>{}} onClick={this.updateFlight}/>
-                                 : <Button type="add" size="md" title="Add Flight" onChange={()=>{}} onClick={this.newFlight}/>}                            
+                                 : <Button type="add" disabled={!isEnabled} size="md" title="Add Flight" onChange={()=>{}} onClick={this.newFlight}/>}                            
                         </form>    
                     </div>    
                 </Panel>                
