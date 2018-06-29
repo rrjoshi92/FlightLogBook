@@ -5,14 +5,14 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import Header from './Components/header'
-import SideBar from './Components/side-bar'
-import FlightDetail from './Components/flight-detail'
-import FlightList from './Components/flight-list'
-import AddFlightForm from './Components/add-flight-form'
+import Header from './FlightLogComponents/header'
+import SideBar from './FlightLogComponents/side-bar'
+import FlightDetail from './FlightLogComponents/flight-detail'
+import FlightList from './FlightLogComponents/flight-list'
+import AddFlightForm from './FlightLogComponents/add-flight-form'
 import { Preloader } from './Components/preloader'
 import FlightlistService from './Services/FlightListServices'
-import About from './Components/flight-about'
+import About from './FlightLogComponents/flight-about'
 
 class App extends Component {
     constructor(props) {

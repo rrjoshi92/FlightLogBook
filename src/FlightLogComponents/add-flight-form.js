@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Panel from './panel'
-import { Input } from './input'
-import { Button } from './button'
-import { Notifications } from './notifications'
+import Panel from '../Components/panel'
+import { Input } from '../Components/input'
+import { Button } from '../Components/button'
+import { Notifications } from '../Components/notifications'
 import { eventBus } from './../lib/event-bus';
 
 
@@ -23,6 +23,9 @@ class AddFlightForm extends Component {
             id: flight ? flight.id : '',
             editing: flight ? true : false
         }
+
+
+
         this.onOriginChange = this.onOriginChange.bind(this);
         this.onDestinationChange = this.onDestinationChange.bind(this);
         this.onCargoChange = this.onCargoChange.bind(this);
@@ -56,16 +59,22 @@ class AddFlightForm extends Component {
         });
     }
 
-    newFlight(e) {
-        e.preventDefault();
-        const newFlight = {
-            Origin: this.state.origin,
-            Destination: this.state.destination,
-            International: this.state.international,
-            Cargo: this.state.cargo
+    
+    newFlight(e){    
+        e.preventDefault();                     
+       if(!this.state.origin.match(/^[a-z0-9]+$/i)){
+            alert("check origin airport")
+        }else if(!this.state.destination.match(/^[a-z0-9]+$/i)){
+            alert("check destiantion airport")
+        }else{
+        const newFlight = {            
+            Origin:this.state.origin,
+            Destination:this.state.destination,
+            International:this.state.international,
+            Cargo:this.state.cargo
         };
         this.props.addFlight(newFlight);
-        eventBus.addNotification("success", "added")
+        eventBus.addNotification("success","added")   }    
 
         this.setState({
             origin: '',

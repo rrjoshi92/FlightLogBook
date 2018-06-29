@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom';
-import Table from './table';
-import TableBody from './table-body';
-import TableHead from './table-head'
-import TableRow from './table-row'
-import Panel from './panel'
-import { Button } from './button'
+import Table from '../Components/table';
+import TableBody from '../Components/table-body';
+import TableHead from '../Components/table-head'
+import TableRow from '../Components/table-row'
+import Panel from '../Components/panel'
+import { Button } from '../Components/button'
 import  FlightListService from '../Services/FlightListServices'
 
 class FlightList extends Component {

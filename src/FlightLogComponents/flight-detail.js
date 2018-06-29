@@ -1,5 +1,5 @@
 import React ,{Component} from 'react'
-import Panel from './panel'
+import Panel from '../Components/panel'
 
 class FlightDetail extends Component {
     constructor(props){       
